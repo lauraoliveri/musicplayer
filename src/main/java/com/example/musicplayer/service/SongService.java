@@ -42,8 +42,13 @@ public class SongService {
         return songRepository.save(existingSong);
     }
 
-    public void deleteSong(Long id) {
-        songRepository.deleteById(id);
+    public boolean deleteSong(Long id) {
+        if (songRepository.existsById(id)){
+            songRepository.deleteById(id);
+            return true;
+        }
+
+        return false;
     }
 
 
