@@ -27,6 +27,21 @@ public class SongService {
         return songRepository.save(song);
     }
 
+    public Song updateSong(Long id, Song newSong) {
+
+        // find the existent song
+        Song existingSong = songRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Song not found"));
+
+        // update attributes
+        existingSong.setTitle(newSong.getTitle());
+        existingSong.setArtist(newSong.getArtist());
+        existingSong.setAudioUrl(newSong.getAudioUrl());
+
+        // save
+        return songRepository.save(existingSong);
+    }
+
     public void deleteSong(Long id) {
         songRepository.deleteById(id);
     }
