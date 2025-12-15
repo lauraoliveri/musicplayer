@@ -1,1 +1,26 @@
-<p>song-list works!</p>
+<div class="container">
+    <h1>
+        Library
+    </h1>
+    <button>
+        Add more
+    </button>
+    
+    <!-- Songs -->
+     <div>
+       @for (song of songs; track $index) {
+        <div class="flex flex-row">
+            <div class="basis-auto bg-sky-50">
+                <img src="" alt="">
+            </div>
+            <div class="basis-auto">
+                <p> {{ song.title }}</p>
+                <p> {{ song.artist }}</p>
+            </div>
+            <div class="basis-auto">
+                ⋮
+            </div>
+        </div>
+       }
+     </div>
+</div>
