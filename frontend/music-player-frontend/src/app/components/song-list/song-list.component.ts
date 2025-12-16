@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { SongService } from '../../services/song.service';
 import { Song } from '../../models/song.model'; // se hai creato un modello
 import { error } from 'console';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-song-list',
-  imports: [],
+  imports: [
+    RouterLink ],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.scss'
 })
@@ -46,6 +48,7 @@ export class SongListComponent {
 
   // to delete a song
   deleteSong(id?: number): void {
+    console.log(id);
     if (!id) return;
     this.songService.deleteSong(id).subscribe({
       next: () => { // when song is deleted update list
