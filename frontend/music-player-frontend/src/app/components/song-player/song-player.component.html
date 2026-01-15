@@ -41,7 +41,16 @@
       <audio #audioRef class="w-full"></audio>
       <div class="flex justify-center content-start gap-8 text-3xl">
         <i class="fa-solid fa-backward-step fa-sm"></i>
-        <i class="fa-solid fa-circle-play fa-xl"></i>
+
+        <!-- play/pause button -->
+        <button (click)="playPause()" class="flex justify-center"> 
+          @if (isPlaying) {
+            <i class="fa-solid fa-circle-pause fa-xl" ></i> 
+          }
+          @else {
+            <i class="fa-solid fa-circle-play fa-xl" ></i> 
+          }
+        </button>
         <i class="fa-solid fa-forward-step fa-sm"></i>
       </div>
     </div>

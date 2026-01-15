@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef  } from '@angular/core';
 import { Song } from '../../models/song.model';
 import { SongService } from '../../services/song.service';
 import { RouterLink } from '@angular/router';
@@ -33,6 +33,21 @@ export class SongPlayerComponent {
     this.isExpanded = !this.isExpanded;
   }
   
+  isPlaying = false;
+
+  @ViewChild('audioRef') audio!: ElementRef<HTMLAudioElement>;
+
+  playPause() {
+    const audio = this.audio.nativeElement;
+
+    if (this.isPlaying) {
+      audio.pause();
+      this.isPlaying = false;
+    } else {
+      audio.play();
+      this.isPlaying = true;
+    }
+  }
 
 
 }
