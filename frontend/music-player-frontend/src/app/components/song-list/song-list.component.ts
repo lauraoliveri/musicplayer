@@ -3,12 +3,14 @@ import { SongService } from '../../services/song.service';
 import { Song } from '../../models/song.model'; // se hai creato un modello
 import { error } from 'console';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { SongPlayerComponent } from '../song-player/song-player.component';
 
 
 @Component({
   selector: 'app-song-list',
   imports: [
-    RouterLink ],
+    RouterLink,
+  SongPlayerComponent ],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.scss'
 })
@@ -17,7 +19,7 @@ export class SongListComponent {
   constructor(private songService: SongService) { }
 
   songs: Song[] = [];
-  currentSong?: Song;
+
 
   // when component is initialized
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class SongListComponent {
 
   // to select a song to play
   getSong(song: Song): void {
-    this.currentSong = song;
+    this.songService.selectSong(song);
   }
 
   // add new song to list
