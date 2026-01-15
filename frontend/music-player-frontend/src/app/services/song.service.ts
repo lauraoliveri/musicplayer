@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'; 
+import { BehaviorSubject, Observable } from 'rxjs'; 
 import { Song } from '../models/song.model';
 
 @Injectable({
@@ -32,5 +32,17 @@ export class SongService {
 
   deleteSong(id: number): Observable<Song>{
     return this.http.delete<Song>(this.backendUrl + '/' + id);
+  }
+
+  // private variable for selected song
+  private selectedSong = new BehaviorSubject<Song | null>(null);
+
+  // accesible for every component
+  public currentSong$ = this.selectedSong.asObservable();
+
+  // song to play
+  selectSong(song: Song){
+     console.log('Brano selezionato:', song);
+    this.selectedSong.next(song);
   }
 }

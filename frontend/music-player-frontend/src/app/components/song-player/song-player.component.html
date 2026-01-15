@@ -1,1 +1,61 @@
-<p>song-player works!</p>
+@if (currentSong) {
+
+<!-- Player fixed at the bottom in mobile -->
+<div [class.h-full]="isExpanded" [class.h-20]="!isExpanded"
+  class="fixed inset-x-0 bottom-0 z-50 bg-neutral text-white transition-all duration-300 ease-in-out md:relative md:h-full md:bg-transparent">
+
+  <!-- Button to close and open player in mobile -->
+  @if (isExpanded) {
+  <div class="flex justify-center p-2 md:hidden bg-primary" (click)="isExpanded = false">
+    <div class="w-12 h-1.5 bg-white/30 rounded-full"></div>
+  </div>
+  }
+
+  <!-- Player -->
+  <div (click)="!isExpanded && isExpanded = true" [class.flex-col]="isExpanded" [class.items-center]="isExpanded"
+    [ngClass]="{
+    'bg-gradient-to-t from-[#24243e] via-[#302b63] to-[#0f0c29]': isExpanded,
+    'md:bg-transparent': !isExpanded 
+    }" [class.bg-primary]="!isExpanded" class="flex h-full p-3 md:flex-col md:p-0 md:mt-12">
+
+    <div [class.size-12]="!isExpanded" [class.size-64]="isExpanded" [class.mt-10]="isExpanded"
+      class="flex-none bg-black shadow-2xl transition-all duration-300 md:size-80 md:mx-auto">
+    </div>
+
+    <!-- Song title and artist -->
+    <div [class.ml-4]="!isExpanded" [class.mt-6]="isExpanded" [class.text-center]="isExpanded"
+      class="flex-1 md:w-80 md:mx-auto md:mt-3 md:text-left">
+      <p class="font-semibold text-base md:text-xl"> {{ currentSong.title }}</p>
+      <p class="text-white/50 font-semibold text-sm md:text-base"> {{ currentSong.artist }}</p>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="w-2/4 flex justify-center mt-3 mb-4">
+      <div class="w-full max-w-md h-1 bg-white/20 rounded-full overflow-hidden">
+        <div class="w-1/3 h-full bg-white"></div>
+      </div>
+    </div>
+
+    <!-- Icons: play-pause-forward ecc -->
+    <div [class.hidden]="!isExpanded" class=" min-h-32 w-full mt-auto mb-10 px-6 md:block md:mt-6">
+      <audio #audioRef class="w-full"></audio>
+      <div class="flex justify-center content-start gap-8 text-3xl">
+        <i class="fa-solid fa-backward-step fa-sm"></i>
+        <i class="fa-solid fa-circle-play fa-xl"></i>
+        <i class="fa-solid fa-forward-step fa-sm"></i>
+      </div>
+    </div>
+
+    <!-- Play button in mobile -->
+    @if (!isExpanded) {
+    <div class="flex items-center px-4 md:hidden">
+      <i class="fa-solid fa-play fa-xl"></i>
+    </div>
+    }
+  </div>
+</div>
+} @else {
+<div class="hidden md:block">
+  <p class="text-white/50 text-center">No songs selected</p>
+</div>
+}
