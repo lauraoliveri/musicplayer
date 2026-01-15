@@ -40,10 +40,12 @@
     <div [class.hidden]="!isExpanded" class=" min-h-32 w-full mt-auto mb-10 px-6 md:block md:mt-6">
       <audio #audioRef class="w-full"></audio>
       <div class="flex justify-center content-start gap-8 text-3xl">
-        <i class="fa-solid fa-backward-step fa-sm"></i>
+        <button (click)="previous()">
+          <i class="fa-solid fa-backward-step fa-sm"></i>
+        </button>
 
         <!-- play/pause button -->
-        <button (click)="playPause()" class="flex justify-center"> 
+        <button (click)="playPause()"> 
           @if (isPlaying) {
             <i class="fa-solid fa-circle-pause fa-xl" ></i> 
           }
@@ -51,7 +53,9 @@
             <i class="fa-solid fa-circle-play fa-xl" ></i> 
           }
         </button>
-        <i class="fa-solid fa-forward-step fa-sm"></i>
+        <button (click)="next()">
+          <i class="fa-solid fa-forward-step fa-sm"></i>
+        </button>
       </div>
     </div>
 
