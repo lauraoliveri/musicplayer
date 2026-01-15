@@ -18,3 +18,9 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
 }
+
+// Selection color
+::selection{
+  background-color: #302b63;
+  color: white;
+}
