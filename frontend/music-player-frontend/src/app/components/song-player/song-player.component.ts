@@ -56,14 +56,15 @@ export class SongPlayerComponent {
 
     // progress bar
     audio.addEventListener('timeupdate', () => { 
-    this.progress = (audio.currentTime / audio.duration) * 100;
+      this.progress = (audio.currentTime / audio.duration) * 100;
+    });
 
     // when songs ends next songs plays
     audio.addEventListener('ended', () => {
-    this.next();
-  });
-  });
+      this.next();
+    });
   }
+  
 
   // to open or close player
   togglePlayer() {

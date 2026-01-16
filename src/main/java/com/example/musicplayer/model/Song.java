@@ -19,6 +19,7 @@ public class Song {
     private String artist;
 
     private String audioUrl;
+    private String imgUrl;
 
 
     public Long getId() {
@@ -52,4 +53,13 @@ public class Song {
     public void setAudioUrl(String audioUrl) {
         this.audioUrl = audioUrl;
     }
+
+    public String getimgUrl() {
+        return imgUrl;
+    }
+
+    public void setimgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
 }
