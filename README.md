@@ -30,5 +30,7 @@ This was my **first project using Java, Spring Boot, Angular, and TypeScript**. 
 * **Frontend:** Angular 21, TypeScript, Tailwind CSS, HTML, CSS
 
 
-
+![Desktop](frontend/music-player-frontend/src/assets/desktop.png)
+![Desktop](frontend/music-player-frontend/src/assets/mobile1.png)
+![Desktop](frontend/music-player-frontend/src/assets/mobile2.png)
 
