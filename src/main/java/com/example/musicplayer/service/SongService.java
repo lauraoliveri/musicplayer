@@ -37,6 +37,7 @@ public class SongService {
         existingSong.setTitle(newSong.getTitle());
         existingSong.setArtist(newSong.getArtist());
         existingSong.setAudioUrl(newSong.getAudioUrl());
+        existingSong.setImgUrl(newSong.getImgUrl());
 
         // save
         return songRepository.save(existingSong);

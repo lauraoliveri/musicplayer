@@ -19,6 +19,8 @@ public class Song {
     private String artist;
 
     private String audioUrl;
+
+    @Column(name = "imgUrl") 
     private String imgUrl;
 
 
@@ -54,11 +56,11 @@ public class Song {
         this.audioUrl = audioUrl;
     }
 
-    public String getimgUrl() {
+    public String getImgUrl() {
         return imgUrl;
     }
 
-    public void setimgUrl(String imgUrl) {
+    public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
 
