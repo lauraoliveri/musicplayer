@@ -1,3 +1,5 @@
+<audio #audioRef class="hidden"></audio>
+
 @if (currentSong) {
 
 <!-- Player fixed at the bottom in mobile -->
@@ -19,7 +21,10 @@
     }" [class.bg-primary]="!isExpanded" class="flex h-full p-3 md:flex-col md:p-0 md:mt-12">
 
     <div [class.size-12]="!isExpanded" [class.size-64]="isExpanded" [class.mt-10]="isExpanded"
-      class="flex-none bg-black shadow-2xl transition-all duration-300 md:size-80 md:mx-auto">
+      class="flex-none shadow-2xl transition-all duration-300 md:size-80 md:mx-auto">
+      <img [src]="currentSong.imgUrl" 
+       [alt]="currentSong.title"
+       class="w-full h-full object-cover rounded">
     </div>
 
     <!-- Song title and artist -->
@@ -38,7 +43,7 @@
 
     <!-- Icons: play-pause-forward ecc -->
     <div [class.hidden]="!isExpanded" class=" min-h-32 w-full mt-auto mb-10 px-6 md:block md:mt-6">
-      <audio #audioRef class="w-full"></audio>
+      
       <div class="flex justify-center content-start gap-8 text-3xl">
         <button (click)="previous()">
           <i class="fa-solid fa-backward-step fa-sm"></i>

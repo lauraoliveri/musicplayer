@@ -42,7 +42,6 @@ export class SongService {
 
   // song to play
   selectSong(song: Song){
-     console.log('Brano selezionato:', song);
     this.selectedSong.next(song);
   }
 }
